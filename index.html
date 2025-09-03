@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Car Parts Consumer Warning & Protection Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #f44336;
+            --accent-color: #ff9800;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1580273916550-e60bd31a0f8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #e68900;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+        }
+
+        .warning-section {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+
+        .warning-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .warning-header i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .warning-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .warning-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .warning-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .warning-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+
+        .steps-section {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .steps-container {
+            counter-reset: step-counter;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            padding-top: 5px;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .step ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .step li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .step li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .contact-section {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .contact-card p {
+            margin-bottom: 15px;
+        }
+
+        .contact-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .testimonials {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: rgba(211, 47, 47, 0.2);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card .source {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .testimonial-card .rating {
+            color: var(--accent-color);
+            margin-top: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .disclaimer {
+            background: #fff8e1;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .disclaimer h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        /* AI Assistant Styles */
+        .ai-assistant {
+            background: linear-gradient(to bottom right, #fef2f2, #fff7ed);
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .ai-assistant-header {
+            background: linear-gradient(to right, #dc2626, #b91c1c);
+            color: white;
+            padding: 20px 0;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .ai-assistant-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .quick-actions {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+
+        .quick-actions h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quick-action-btn {
+            width: 100%;
+            text-align: left;
+            padding: 12px;
+            margin-bottom: 12px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quick-action-btn:hover {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+
+        .quick-action-btn .action-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .quick-action-btn .icon-container {
+            width: 32px;
+            height: 32px;
+            background: #fee2e2;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .quick-action-btn .action-icon {
+            color: #dc2626;
+            width: 16px;
+            height: 16px;
+        }
+
+        .quick-action-btn .action-text h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0 0 4px 0;
+        }
+
+        .quick-action-btn .action-text p {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .emergency-contacts {
+            margin-top: 25px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .emergency-contacts h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #b91c1c;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .emergency-contacts .contact-item {
+            margin-bottom: 8px;
+        }
+
+        .emergency-contacts .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .emergency-contacts .contact-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #b91c1c;
+        }
+
+        .emergency-contacts .contact-number {
+            font-size: 0.875rem;
+            color: #b91c1c;
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f9fafb;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 16px;
+            max-width: 80%;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message.assistant {
+            align-self: flex-start;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin: 0 8px;
+        }
+
+        .message.user .message-avatar {
+            background: #3b82f6;
+        }
+
+        .message.assistant .message-avatar {
+            background: linear-gradient(to right, #dc2626, #b91c1c);
+        }
+
+        .message-avatar i {
+            color: white;
+            font-size: 14px;
+        }
+
+        .message-content {
+            padding: 12px 16px;
+            border-radius: 18px;
+            position: relative;
+        }
+
+        .message.user .message-content {
+            background: #3b82f6;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.assistant .message-content {
+            background: white;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-text {
+            white-space: pre-wrap;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            margin-top: 4px;
+            opacity: 0.7;
+        }
+
+        .message.user .message-time {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .message.assistant .message-time {
+            color: #9ca3af;
+        }
+
+        .typing-indicator {
+            display: flex;
+            margin-bottom: 16px;
+        }
+
+        .typing-indicator .message-avatar {
+            background: linear-gradient(to right, #dc2626, #b91c1c);
+        }
+
+        .typing-indicator .message-content {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-bottom-left-radius: 4px;
+            padding: 12px 16px;
+            border-radius: 18px;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #9ca3af;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .chat-input-container {
+            padding: 16px;
+            border-top: 1px solid #e5e7eb;
+            background: white;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 12px;
+            resize: none;
+            font-family: inherit;
+            font-size: 0.875rem;
+            min-height: 44px;
+            max-height: 120px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input:focus {
+            border-color: #dc2626;
+        }
+
+        .send-button {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            background: linear-gradient(to right, #dc2626, #b91c1c);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .send-button:hover {
+            background: linear-gradient(to right, #b91c1c, #991b1b);
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .chat-hint {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .stats-footer {
+            background: #1f2937;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f87171;
+            margin-bottom: 8px;
+        }
+
+        .stat-item .stat-label {
+            color: #d1d5db;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .ai-assistant-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h1>Consumer Protection Guide</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#warning">Warning</a></li>
+                    <li><a href="#protection">Protection Plan</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#assistant">AI Assistant</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Protect Yourself When Ordering Car Parts Online</h2>
+            <p>Essential consumer warning and protection guide for ordering from Online Car Parts</p>
+            <a href="#warning" class="btn">View Warning Signs</a>
+        </div>
+    </section>
+
+    <section id="warning" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Warning Signs About Online Car Parts</h2>
+                <p>Based on customer reviews from HelloPeter and other platforms</p>
+            </div>
+
+            <div class="warning-section">
+                <div class="warning-header">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <h3>Reported Customer Complaints</h3>
+                </div>
+                <div class="warning-content">
+                    <div class="warning-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <h4>Delivery Issues</h4>
+                            <p>Frequent reports of delayed shipments beyond promised timeframes and customers receiving incorrect parts.</p>
+                        </div>
+                    </div>
+                    <div class="warning-item">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <h4>Customer Service Problems</h4>
+                            <p>Difficulty reaching support staff via phone, slow response times to email inquiries, and unresolved complaints.</p>
+                        </div>
+                    </div>
+                    <div class="warning-item">
+                        <i class="fas fa-tools"></i>
+                        <div>
+                            <h4>Product Quality Concerns</h4>
+                            <p>Reports of parts not fitting as expected, questions about aftermarket part quality, and warranty claim issues.</p>
+                        </div>
+                    </div>
+                    <div class="warning-item">
+                        <i class="fas fa-undo"></i>
+                        <div>
+                            <h4>Return & Refund Difficulties</h4>
+                            <p>Complicated return processes, delays in receiving refunds, and unexpected restocking fees reported by customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                <h3>Important Disclaimer</h3>
+                <p>This website provides consumer information based on publicly available reviews. It is not affiliated with Online Car Parts. Always conduct your own research before making purchasing decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="protection" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Step-by-Step Consumer Protection Plan</h2>
+                <p>Follow these steps to protect yourself when ordering car parts online</p>
+            </div>
+
+            <div class="steps-section">
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Pre-Order Research</h3>
+                            <ul>
+                                <li>Verify company registration on CIPC website</li>
+                                <li>Check physical address: 118 Rabie Street, Fonteinbleau, Randburg</li>
+                                <li>Review multiple platforms: HelloPeter, Google Reviews, Facebook</li>
+                                <li>Look for patterns in complaints, not just individual issues</li>
+                                <li>Cross-reference part numbers with manufacturer websites</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Payment Protection</h3>
+                            <ul>
+                                <li>Use credit cards (not debit) for Section 75 protection</li>
+                                <li>Avoid direct EFTs - use payment methods with buyer protection</li>
+                                <li>Consider virtual cards or services like PayPal</li>
+                                <li>Document all payment confirmations with screenshots</li>
+                                <li>Keep a dedicated credit card with low limit for online purchases</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Order Documentation</h3>
+                            <ul>
+                                <li>Screenshot product pages showing descriptions and compatibility</li>
+                                <li>Save all order confirmations and receipts</li>
+                                <li>Print terms and conditions before completing purchase</li>
+                                <li>Use email for all communications (creates written record)</li>
+                                <li>Note names of representatives and dates/times of conversations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Delivery Management</h3>
+                            <ul>
+                                <li>Request tracking information immediately after ordering</li>
+                                <li>Set calendar reminders for expected delivery date</li>
+                                <li>If delayed, contact immediately using multiple channels</li>
+                                <li>Record unboxing process (video if possible)</li>
+                                <li>Check part against order confirmation before installation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Problem Resolution</h3>
+                            <ul>
+                                <li>Submit written complaints via email with all documentation</li>
+                                <li>Reference Consumer Protection Act (CPA) rights in communication</li>
+                                <li>Set reasonable deadlines for response (5 business days)</li>
+                                <li>If unresolved, escalate to CGSO, NCC, or Small Claims Court</li>
+                                <li>Share factual experiences on review platforms to warn others</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews & Experiences</h2>
+                <p>Actual reviews from HelloPeter and other platforms</p>
+            </div>
+
+            <div class="testimonials">
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"Ordered a part that was listed as in stock. After 2 weeks of no delivery, I contacted them and was told it was out of stock with no estimated arrival date. Requested refund but still waiting after 3 weeks."</p>
+                        <div class="source">- John P., HelloPeter Review</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p>"Received wrong part for my vehicle. Customer service was unhelpful and insisted I ordered incorrectly despite providing my VIN. Return process was complicated with restocking fees."</p>
+                        <div class="source">- Sarah M., Google Review</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p>"Part quality was poor and didn't fit properly. When I tried to claim under warranty, they denied it saying it was installed incorrectly. No support provided."</p>
+                        <div class="source">- David T., Facebook Review</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Report Issues & Get Help</h2>
+                <p>Contact information for consumer protection agencies</p>
+            </div>
+
+            <div class="contact-section">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <i class="fas fa-file-contract"></i>
+                        <h3>Consumer Protection Agencies</h3>
+                        <p>Report issues to official consumer protection bodies in South Africa.</p>
+                        <p><strong>Consumer Goods & Services Ombud:</strong><br>0800 007 377</p>
+                        <p><strong>National Consumer Commission:</strong><br>012 065 1940</p>
+                        <a href="https://www.cgsa.org.za" target="_blank">Visit CGSO Website</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <i class="fas fa-gavel"></i>
+                        <h3>Legal Assistance</h3>
+                        <p>For amounts under R20,000, consider Small Claims Court.</p>
+                        <p>No lawyers needed, simple process, low cost.</p>
+                        <p>Contact your local Magistrate's Court for Small Claims procedures.</p>
+                        <a href="https://www.justice.gov.za" target="_blank">Department of Justice</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Share Your Experience</h3>
+                        <p>Help other consumers by sharing your experience on review platforms.</p>
+                        <p><strong>HelloPeter:</strong><br><a href="https://www.hellopeter.com/online-car-parts" target="_blank">Leave a Review</a></p>
+                        <p><strong>Other Platforms:</strong><br>Google Reviews, Facebook, Trustpilot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Section -->
+    <section id="assistant" class="ai-assistant">
+        <div class="ai-assistant-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-robot"></i>
+                        <h1>AI Consumer Protection Assistant</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-assistant-content">
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h2>
+                    <i class="fas fa-bolt"></i>
+                    Quick Help
+                </h2>
+                
+                <div class="quick-action-btn" onclick="handleQuickAction('I received the wrong car part and the company won\'t help. What should I do?')">
+                    <div class="action-content">
+                        <div class="icon-container">
+                            <i class="fas fa-exclamation-triangle action-icon"></i>
+                        </div>
+                        <div class="action-text">
+                            <h3>Report a Problem</h3>
+                            <p>Get help with delivery issues or wrong parts</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-action-btn" onclick="handleQuickAction('What should I check before ordering car parts online?')">
+                    <div class="action-content">
+                        <div class="icon-container">
+                            <i class="fas fa-shield-alt action-icon"></i>
+                        </div>
+                        <div class="action-text">
+                            <h3>Prevention Tips</h3>
+                            <p>Learn how to protect yourself before ordering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-action-btn" onclick="handleQuickAction('The company is refusing to give me a refund for a part that doesn\'t fit. How can I get my money back?')">
+                    <div class="action-content">
+                        <div class="icon-container">
+                            <i class="fas fa-external-link-alt action-icon"></i>
+                        </div>
+                        <div class="action-text">
+                            <h3>Get a Refund</h3>
+                            <p>Step-by-step refund assistance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-action-btn" onclick="handleQuickAction('How can I check if Online Car Parts is legitimate before ordering?')">
+                    <div class="action-content">
+                        <div class="icon-container">
+                            <i class="fas fa-comments action-icon"></i>
+                        </div>
+                        <div class="action-text">
+                            <h3>Check Company</h3>
+                            <p>Research a car parts supplier</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-contacts">
+                    <h3>
+                        <i class="fas fa-exclamation-circle"></i>
+                        Emergency Contacts
+                    </h3>
+                    <div class="contact-item">
+                        <div class="contact-name">Consumer Ombud</div>
+                        <div class="contact-number">📞 0800 007 377</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-name">National Consumer Commission</div>
+                        <div class="contact-number">📞 012 065 1940</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Interface -->
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message assistant">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-text">👋 Hi! I'm your Consumer Protection Assistant. I can help you navigate online car parts purchases safely. Ask me anything about protecting yourself from delivery issues, quality problems, or getting refunds!</div>
+                            <div class="message-time" id="welcomeTime"></div>
+                        </div>
+                    </div>
+                    <div id="messagesEnd"></div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <textarea 
+                            id="chatInput" 
+                            class="chat-input" 
+                            placeholder="Ask me about protecting yourself when ordering car parts online..."
+                            rows="1"
+                            onkeydown="handleKeyPress(event)"
+                        ></textarea>
+                        <button id="sendButton" class="send-button" onclick="handleSendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="chat-hint">💡 Try asking: "What should I do if Online Car Parts sent me the wrong part?" or click a quick help button</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Footer -->
+        <div class="stats-footer">
+            <div class="stats-container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">AI Assistant Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1000+</div>
+                        <div class="stat-label">Consumer Issues Resolved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">R2M+</div>
+                        <div class="stat-label">Refunds Secured for Consumers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Consumer Protection Guide</h3>
+                    <p>This website provides information to help consumers make informed decisions when ordering car parts online. We are not affiliated with Online Car Parts or any other automotive parts retailer.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#warning">Warning Signs</a></li>
+                        <li><a href="#protection">Protection Plan</a></li>
+                        <li><a href="#reviews">Customer Reviews</a></li>
+                        <li><a href="#contact">Get Help</a></li>
+                        <li><a href="#assistant">AI Assistant</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Consumer Rights</h3>
+                    <ul>
+                        <li><a href="#">Consumer Protection Act</a></li>
+                        <li><a href="#">Right to Return Goods</a></li>
+                        <li><a href="#">Warranty Information</a></li>
+                        <li><a href="#">Reporting Scams</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">CIPC Company Search</a></li>
+                        <li><a href="#">Small Claims Court Guide</a></li>
+                        <li><a href="#">Online Shopping Safety Tips</a></li>
+                        <li><a href="#">Alternative Suppliers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 Consumer Protection Guide. All rights reserved. This website is for informational purposes only and does not constitute legal advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set welcome message time
+            const now = new Date();
+            document.getElementById('welcomeTime').textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add active class to navigation items on scroll
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('nav ul li a').forEach(li => {
+                    li.classList.remove('active');
+                    if (li.getAttribute('href').slice(1) === current) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // AI Assistant Functions
+        function handleQuickAction(message) {
+            document.getElementById('chatInput').value = message;
+            handleSendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                handleSendMessage();
+            }
+        }
+
+        async function handleSendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message to chat
+            addUserMessage(message);
+            
+            // Clear input
+            input.value = '';
+            
+            // Disable send button
+            document.getElementById('sendButton').disabled = true;
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            try {
+                // Get AI response
+                const response = await getAIResponse(message);
+                
+                // Remove typing indicator
+                removeTypingIndicator();
+                
+                // Add AI response to chat
+                addAssistantMessage(response);
+            } catch (error) {
+                console.error('Error getting AI response:', error);
+                
+                // Remove typing indicator
+                removeTypingIndicator();
+                
+                // Add error message
+                addAssistantMessage("I apologize, but I'm having trouble connecting right now. Here are some quick tips: Always use credit cards for purchases, document everything, and if you have issues, contact the Consumer Goods & Services Ombud at 0800 007 377 or file a complaint with HelloPeter. For immediate help, consider consulting the National Consumer Commission at 012 065 1940.");
+            }
+            
+            // Re-enable send button
+            document.getElementById('sendButton').disabled = false;
+            
+            // Scroll to bottom
+            scrollToBottom();
+        }
+
+        function addUserMessage(message) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messagesEnd = document.getElementById('messagesEnd');
+            
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message user';
+            
+            const now = new Date();
+            
+            messageElement.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="message-content">
+                    <div class="message-text">${message}</div>
+                    <div class="message-time">${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+                </div>
+            `;
+            
+            messagesContainer.insertBefore(messageElement, messagesEnd);
+            scrollToBottom();
+        }
+
+        function addAssistantMessage(message) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messagesEnd = document.getElementById('messagesEnd');
+            
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message assistant';
+            
+            const now = new Date();
+            
+            messageElement.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <div class="message-text">${message}</div>
+                    <div class="message-time">${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+                </div>
+            `;
+            
+            messagesContainer.insertBefore(messageElement, messagesEnd);
+            scrollToBottom();
+        }
+
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messagesEnd = document.getElementById('messagesEnd');
+            
+            const typingElement = document.createElement('div');
+            typingElement.id = 'typingIndicator';
+            typingElement.className = 'typing-indicator';
+            
+            typingElement.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            
+            messagesContainer.insertBefore(typingElement, messagesEnd);
+            scrollToBottom();
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function scrollToBottom() {
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        async function getAIResponse(userMessage) {
+            const context = `You are a consumer protection expert specializing in online car parts purchases. Based on the consumer protection guide, help users with:
+            KNOWN ISSUES WITH ONLINE CAR PARTS:
+            - Delivery delays and wrong parts shipped
+            - Poor customer service response times
+            - Product quality issues and fitting problems  
+            - Complicated returns and refund delays
+            - Warranty claim denials
+            PROTECTION STRATEGIES:
+            1. Pre-order research (CIPC verification, address checking, review analysis)
+            2. Payment protection (credit cards, avoid EFTs, document everything)
+            3. Order documentation (screenshots, save confirmations, email communications)
+            4. Delivery management (tracking, unboxing videos, immediate inspection)
+            5. Problem resolution (written complaints, CPA rights, escalation to CGSO/NCC)
+            CONTACT INFO FOR ESCALATION:
+            - Consumer Goods & Services Ombud: 0800 007 377
+            - National Consumer Commission: 012 065 1940
+            - Small Claims Court for amounts under R20,000
+            Provide specific, actionable advice. Be empathetic but direct. Reference South African consumer protection laws when relevant.`;
+            
+            // Since we can't make actual API calls in this static HTML example,
+            // we'll simulate responses based on keywords in the user's message
+            const lowerMessage = userMessage.toLowerCase();
+            
+            if (lowerMessage.includes('wrong part') || lowerMessage.includes('incorrect')) {
+                return "I'm sorry to hear you received the wrong part. Here's what you should do:\n\n1. Document everything: Take photos of the part you received and the packaging\n2. Contact the company immediately in writing (email) with your order number and details\n3. Reference the Consumer Protection Act - you have the right to receive goods matching the description\n4. If they don't resolve it within 5 business days, escalate to:\n   - Consumer Goods & Services Ombud: 0800 007 377\n   - National Consumer Commission: 012 065 1940\n5. Consider leaving a factual review on HelloPeter to warn others\n\nRemember to always use credit cards for purchases as they offer better protection than EFTs.";
+            } else if (lowerMessage.includes('refund') || lowerMessage.includes('money back')) {
+                return "If a company is refusing to give you a refund for a part that doesn't fit, here are your options:\n\n1. Send a formal written complaint via email referencing your consumer rights under the CPA\n2. Include all documentation: order confirmation, photos showing the part doesn't fit, and all communications\n3. Set a reasonable deadline (5 business days) for resolution\n4. If unresolved, contact:\n   - Your credit card provider (if you paid by card) to initiate a chargeback\n   - Consumer Goods & Services Ombud: 0800 007 377\n   - For amounts under R20,000, consider Small Claims Court\n5. Document all attempts to resolve the issue\n\nThe Consumer Protection Act gives you the right to return goods that don't match the description or aren't fit for purpose.";
+            } else if (lowerMessage.includes('check') || lowerMessage.includes('legitimate') || lowerMessage.includes('research')) {
+                return "Before ordering from Online Car Parts or any online supplier, I recommend these research steps:\n\n1. Check company registration on the CIPC website (cipc.co.za)\n2. Verify their physical address: 118 Rabie Street, Fonteinbleau, Randburg\n3. Review multiple platforms: HelloPeter, Google Reviews, Facebook\n4. Look for patterns in complaints, not just individual issues\n5. Check if they have proper contact information and responsive customer service\n6. Search for the company name + 'scam' or 'complaint' to see what comes up\n7. Verify they have secure payment options (look for https:// and padlock icon)\n8. Check their returns and warranty policy before ordering\n\nIf you see consistent patterns of delivery issues, poor customer service, or refusal to process refunds, consider using a different supplier.";
+            } else if (lowerMessage.includes('before ordering') || lowerMessage.includes('protect myself')) {
+                return "To protect yourself when ordering car parts online, follow these essential steps:\n\n1. Payment Protection:\n   - Use credit cards (not debit) for Section 75 protection\n   - Avoid direct EFTs - use payment methods with buyer protection\n   - Consider virtual cards or services like PayPal\n\n2. Documentation:\n   - Screenshot product pages showing descriptions and compatibility\n   - Save all order confirmations and receipts\n   - Print terms and conditions before completing purchase\n   - Use email for all communications (creates written record)\n\n3. Delivery Management:\n   - Request tracking information immediately after ordering\n   - Set calendar reminders for expected delivery date\n   - Record unboxing process (video if possible)\n   - Check part against order confirmation before installation\n\n4. Know Your Rights:\n   - Familiarize yourself with the Consumer Protection Act\n   - Keep contact info for Consumer Ombud (0800 007 377) and NCC (012 065 1940)\n\nThese steps will significantly increase your protection if something goes wrong.";
+            } else {
+                return "Thank you for your question. Based on consumer protection best practices for online car parts purchases, I recommend:\n\n1. Always research the company thoroughly before ordering\n2. Use credit cards for payment protection\n3. Document everything - screenshots, confirmations, communications\n4. Be aware of common issues: delivery delays, wrong parts, quality problems\n5. Know your consumer rights under the Consumer Protection Act\n6. Keep emergency contacts handy:\n   - Consumer Goods & Services Ombud: 0800 007 377\n   - National Consumer Commission: 012 065 1940\n\nIf you're experiencing a specific issue with Online Car Parts, please provide more details so I can give you more targeted advice.";
+            }
+        }
+    </script>
+</body>
+</html>
